@@ -977,16 +977,24 @@ footer{border-top:1px solid var(--line);padding:70px 0 34px;position:relative;z-
     var h=document.documentElement.scrollHeight-innerHeight;
     prog.style.width=(h>0?(y/h*100):0)+'%';
     totop.classList.toggle('show',y>500);
+    revealCheck();
   }
   addEventListener('scroll',onScroll,{passive:true}); onScroll();
   totop.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'});});
 
-  /* ---------- reveal observer ---------- */
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-  function observe(scope){(scope||document).querySelectorAll('.reveal:not(.in),.clip:not(.in)').forEach(function(el){io.observe(el);});}
-  function startReveal(){observe(document.querySelector('.page.active'));}
+  /* ---------- reveal on scroll (robust, no observer) ---------- */
+  function revealCheck(){
+    var vh=innerHeight,act=document.querySelector('.page.active');
+    if(!act)return;
+    var els=act.querySelectorAll('.reveal:not(.in),.clip:not(.in)');
+    for(var i=0;i<els.length;i++){
+      var r=els[i].getBoundingClientRect();
+      if(r.top<vh*0.92 && r.bottom>-80) els[i].classList.add('in');
+    }
+  }
+  function observe(){revealCheck();}
+  function startReveal(){revealCheck();}
+  addEventListener('resize',revealCheck,{passive:true});
 
   /* ---------- word-split for big headings ---------- */
   document.querySelectorAll('.display,.title,.phead h1').forEach(function(h){
