@@ -336,6 +336,26 @@ form{border:1px solid var(--line);border-radius:16px;padding:clamp(26px,3vw,40px
 .fld textarea{resize:vertical;min-height:110px}
 @media(max-width:820px){.cgrid{grid-template-columns:1fr}.fr{grid-template-columns:1fr}}
 
+/* ---------------- services: ideal / marquee / faq ---------------- */
+.srow .ideal{display:block;margin-top:16px;font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.03em;color:var(--faint)}
+.srow .ideal b{color:var(--gold-l);font-weight:400}
+.kw{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;margin-bottom:30px}
+.kwrow{display:flex;width:max-content;animation:scrollx 42s linear infinite}
+.kw:hover .kwrow{animation-play-state:paused}
+.kwrow span{font-family:'Fraunces',serif;font-style:italic;font-size:1.4rem;color:var(--faint);padding:0 30px;white-space:nowrap;display:flex;align-items:center;gap:30px}
+.kwrow span::after{content:"\2726";font-style:normal;font-size:.7rem;color:var(--gold-d)}
+.faq{border-top:1px solid var(--line-2)}
+.fitem{border-bottom:1px solid var(--line)}
+.fq{width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;font-family:'Fraunces',serif;font-weight:380;font-size:clamp(1.2rem,2vw,1.65rem);color:var(--ivory);transition:color .4s}
+.fq:hover{color:var(--gold-l)}
+.fq .pm{flex:none;width:24px;height:24px;position:relative}
+.fq .pm::before,.fq .pm::after{content:"";position:absolute;background:var(--gold-l);transition:transform .4s var(--e1)}
+.fq .pm::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%)}
+.fq .pm::after{top:0;left:50%;height:100%;width:1.5px;transform:translateX(-50%)}
+.fitem.open .fq .pm::after{transform:translateX(-50%) scaleY(0)}
+.fa{max-height:0;overflow:hidden;transition:max-height .55s var(--e1)}
+.fa p{color:var(--muted);padding:0 0 28px;max-width:66ch;font-size:1.02rem}
+
 /* ---------------- CTA ---------------- */
 .cta{position:relative;border:1px solid var(--line-2);border-radius:22px;padding:clamp(48px,7vw,92px);text-align:center;overflow:hidden;background:linear-gradient(160deg,rgba(28,22,16,.7),rgba(16,13,9,.7))}
 .cta::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 130%,rgba(200,162,74,.28),transparent 60%);pointer-events:none}
@@ -621,11 +641,12 @@ footer{border-top:1px solid var(--line);padding:80px 0 36px;position:relative;z-
   </div></div>
 
   <section class="blk" style="padding-top:40px"><div class="wrap">
-    <div class="svc">
-      <div class="srow" data-rv data-cur="01"><div class="ix">/01</div><h3>Fund Management</h3><div class="body"><p>Through rigorous research and strategic asset allocation, we serve both institutional and individual investors.</p><ul><li>Diversified offerings across asset classes</li><li>Active management adapting to markets</li><li>Regular reviews and transparency</li></ul></div><div class="ar">↗</div></div>
-      <div class="srow" data-rv data-cur="02"><div class="ix">/02</div><h3>External Asset Management</h3><div class="body"><p>An approach emphasising risk management and long-term growth, aligned with your objectives.</p><ul><li>Customised investment strategies</li><li>Direct access to a wide range of instruments</li><li>Continuous monitoring and reporting</li></ul></div><div class="ar">↗</div></div>
-      <div class="srow" data-rv data-cur="03"><div class="ix">/03</div><h3>Investment Advisory</h3><div class="body"><p>Serving individuals, family offices and institutions seeking informed investment decisions.</p><ul><li>Tailored portfolio strategies</li><li>Comprehensive market & sector analysis</li><li>Proactive, ongoing recommendations</li></ul></div><div class="ar">↗</div></div>
-      <div class="srow" data-rv data-cur="04"><div class="ix">/04</div><h3>Corporate Finance & Advisory</h3><div class="body"><p>Helping businesses navigate financial decisions and maximise value at every stage.</p><ul><li>Investment advisory</li><li>Mergers & acquisitions advisory</li><li>Valuation & capital structuring</li></ul></div><div class="ar">↗</div></div>
+    <div class="kw" data-rv><div class="kwrow"><span>Fund Management</span><span>External Asset Management</span><span>Investment Advisory</span><span>Corporate Finance</span><span>Family Office</span><span>Indian Securities</span><span>Fund Management</span><span>External Asset Management</span><span>Investment Advisory</span><span>Corporate Finance</span><span>Family Office</span><span>Indian Securities</span></div></div>
+      <div class="svc">
+      <div class="srow" data-rv data-cur="01"><div class="ix">/01</div><h3>Fund Management</h3><div class="body"><p>Our flagship discipline. Through rigorous, bottom-up research and strategic asset allocation, we build and actively manage diversified portfolios for institutions and individuals &mdash; with a specialist focus on Indian equities and derivatives.</p><ul><li>Diversified offerings across asset classes</li><li>Active management that adapts to market regimes</li><li>Specialist exposure to Indian securities</li><li>Regular performance reviews and full transparency</li></ul><span class="ideal"><b>Ideal for</b> &mdash; institutions &amp; individuals seeking managed exposure.</span></div><div class="ar">↗</div></div>
+      <div class="srow" data-rv data-cur="02"><div class="ix">/02</div><h3>External Asset Management</h3><div class="body"><p>For clients who hold assets across several banks, we act as a single, independent steward &mdash; designing and executing strategy while you retain custody at your chosen institutions. The emphasis is risk management and durable, long-term growth.</p><ul><li>Customised, objective-led strategies</li><li>Direct access to a wide range of instruments</li><li>Assets held at your own custodian banks</li><li>Continuous monitoring and clear reporting</li></ul><span class="ideal"><b>Ideal for</b> &mdash; HNW clients with existing banking relationships.</span></div><div class="ar">↗</div></div>
+      <div class="srow" data-rv data-cur="03"><div class="ix">/03</div><h3>Investment Advisory</h3><div class="body"><p>Guidance without giving up control. We provide research-led recommendations and portfolio strategy, so individuals, family offices and institutions can make confident, well-informed decisions on their own terms.</p><ul><li>Tailored portfolio strategies aligned to your goals</li><li>Comprehensive market &amp; sector analysis</li><li>Proactive, ongoing recommendations</li><li>Independent, conflict-free advice</li></ul><span class="ideal"><b>Ideal for</b> &mdash; those who want to stay hands-on, with expert counsel.</span></div><div class="ar">↗</div></div>
+      <div class="srow" data-rv data-cur="04"><div class="ix">/04</div><h3>Corporate Finance & Advisory</h3><div class="body"><p>Beyond portfolios, we help businesses and founders navigate pivotal financial decisions &mdash; from raising and structuring capital to mergers, acquisitions and valuation &mdash; always with an eye on maximising long-term value.</p><ul><li>Capital raising &amp; structuring</li><li>Mergers &amp; acquisitions advisory</li><li>Valuation services</li><li>Strategic financial planning</li></ul><span class="ideal"><b>Ideal for</b> &mdash; businesses, founders &amp; shareholders at an inflection point.</span></div><div class="ar">↗</div></div>
     </div>
   </div></section>
 
@@ -650,6 +671,19 @@ footer{border-top:1px solid var(--line);padding:80px 0 36px;position:relative;z-
       <div class="stp" data-rv data-d="1"><div class="n">/02</div><h4>Strategise</h4><p>We design a research-led plan tailored to your objectives.</p></div>
       <div class="stp" data-rv data-d="2"><div class="n">/03</div><h4>Co-invest</h4><p>We align our interests with yours and put capital to work.</p></div>
       <div class="stp" data-rv data-d="3"><div class="n">/04</div><h4>Review</h4><p>We monitor, report transparently and adapt to markets.</p></div>
+    </div>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <div style="margin-bottom:40px;max-width:26ch">
+      <span class="ey" data-rv="fade">Good to know</span>
+      <h2 class="h2" data-rv style="margin-top:24px">Common <span class="it gold">questions.</span></h2>
+    </div>
+    <div class="faq" data-rv>
+      <div class="fitem"><button class="fq" data-cur="Open">Is Prosperitas regulated?<span class="pm"></span></button><div class="fa"><p>Yes. Prosperitas Capital is a Capital Markets Services (CMS) licensed fund management company, operating under the oversight of the Monetary Authority of Singapore (MAS) &mdash; assuring regulatory compliance and investor protection.</p></div></div>
+      <div class="fitem"><button class="fq" data-cur="Open">Do you only invest in Indian markets?<span class="pm"></span></button><div class="fa"><p>India is our area of deepest specialist expertise, but we operate with a global perspective. We construct portfolios across asset classes and geographies, using our regional insight to uncover opportunities others miss.</p></div></div>
+      <div class="fitem"><button class="fq" data-cur="Open">Who do you typically work with?<span class="pm"></span></button><div class="fa"><p>We partner with high-net-worth individuals, families and family offices, and institutions &mdash; anyone seeking a disciplined, research-driven steward who co-invests alongside them.</p></div></div>
+      <div class="fitem"><button class="fq" data-cur="Open">How do you align with your clients?<span class="pm"></span></button><div class="fa"><p>Our philosophy is TEAM &mdash; Together Everyone Achieves More. We co-invest with our clients, so our success is tied directly to theirs, and we communicate transparently at every stage.</p></div></div>
     </div>
   </div></section>
 
@@ -842,7 +876,8 @@ function raf(){
     targ=scrollY;
     var d=targ-curr; curr+=d*0.09; vel=d;
     if(Math.abs(d)<.06)curr=targ;
-    smooth.style.transform='translate3d(0,'+(-curr).toFixed(2)+'px,0)';
+    var sk=Math.max(-1.6,Math.min(1.6,d*0.035));
+    smooth.style.transform='translate3d(0,'+(-curr).toFixed(2)+'px,0) skewY('+sk.toFixed(3)+'deg)';
     applyHeader(curr);
   }
   reveals();
@@ -891,6 +926,9 @@ top.addEventListener('click',function(){if(STICKY){scrollTo({top:0,behavior:'smo
 
 function closeMob(){mob.classList.remove('open');bgb.classList.remove('x');document.body.classList.remove('lock');}
 bgb.addEventListener('click',function(){var o=mob.classList.toggle('open');bgb.classList.toggle('x',o);document.body.classList.toggle('lock',o);});
+
+/* ---- faq accordion ---- */
+$$('.fq').forEach(function(q){q.addEventListener('click',function(){var it=q.closest('.fitem'),a=it.querySelector('.fa');var op=it.classList.toggle('open');a.style.maxHeight=op?a.scrollHeight+'px':0;});});
 
 /* ---- contact form ---- */
 var cf=$('#cform');if(cf)cf.addEventListener('submit',function(e){e.preventDefault();var b=$('#sbl'),o=b.textContent;b.textContent='Thank you — we will be in touch';cf.reset();setTimeout(function(){b.textContent=o;},3200);});
